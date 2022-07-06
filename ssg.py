@@ -1,4 +1,4 @@
-import * from typer
+import typer
 import Site from ssg.site
 
 def function(source = "content", dest = "dist"):
