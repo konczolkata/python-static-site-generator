@@ -3,21 +3,21 @@ from pathlib import Path
 import shutil
 
 class Parser:
+    extensions = []
     extensions = List[str]
     
     def valid_extension(self, extension):
-        extension in self.extensions
-        
+        return (extension in self.extensions)
+            
     def parse(self, path, source, dest):
         self.path = Path(path)
         self.source = Path(source)
         self.dest = Path(dest)
-        
-        raise NotImplementedError
+        raise NotImplementedError("Not implemented")
         
     def read(self, path):
-        with open(self.path) as file:
-            return read(file)
+        with open(self.path, "r") as file:
+            return file.read()
             
     def write(self, path, dest, content, ext = ".html"):
         full_path = self.dest/path.with_suffix(self.ext).name
