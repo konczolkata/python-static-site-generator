@@ -1,8 +1,8 @@
 import typer
 from ssg.site import Site
 
-def function(source = "content", dest = "dist"):
-    config = {"source":source, "dest":dest}
+def main(source = "content", dest = "dist"):
+    config = {"source":self.source, "dest":self.dest}
     s1 = Site(**config)
     s1.build()
     
