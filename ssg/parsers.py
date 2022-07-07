@@ -22,7 +22,7 @@ class Parser:
     def write(self, path, dest, content, ext = ".html"):
         full_path = self.dest/path.with_suffix(self.ext).name
         with open(full_path) as file:
-            write(self.content) to file
+            self.content.write(file)
             
     def copy(self, path, source, dest):
         copy2(self.path, self.dest/self.path.relative_to(self.source))
