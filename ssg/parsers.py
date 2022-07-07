@@ -3,17 +3,14 @@ from pathlib import Path
 import shutil
 
 class Parser:
-    extensions = []
-    extensions = List[str]
+    extensions : List[str] = []
+    #why is this like this?
     
     def valid_extension(self, extension):
         return (extension in self.extensions)
             
-    def parse(self, path, source, dest):
-        self.path = Path(path)
-        self.source = Path(source)
-        self.dest = Path(dest)
-        raise NotImplementedError("Not implemented")
+    def parse(self, path : Path, source : Path, dest : Path):
+        raise NotImplementedError
         
     def read(self, path):
         with open(self.path, "r") as file:
