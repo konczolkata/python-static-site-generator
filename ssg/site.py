@@ -1,4 +1,5 @@
 from pathlib import Path
+#how do these files link up?
 
 class Site:
     def __init__(self, source, dest, parsers = None):
@@ -16,7 +17,8 @@ class Site:
             if path.is_dir():
                 self.create_dir(path)
             elif path.is_file():
-                Site.run_parser(path)
+                self.run_parser(path)
+                #why self?
                 
     def load_parser(self, extension):
         for parser in self.parsers:
@@ -26,6 +28,6 @@ class Site:
     def run_parser(self, path):
         parser = load_parser(self.path.suffix)
         if parser is not None:
-            parse(path, source, dest)
+            path.parse(source, dest)
         else:
             print("Not Implemented")
