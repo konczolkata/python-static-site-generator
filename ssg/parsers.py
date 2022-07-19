@@ -7,7 +7,7 @@ class Parser:
     #why is this like this?
     
     def valid_extension(self, extension):
-        return (extension in self.extensions)
+        return extension in self.extensions
             
     def parse(self, path : Path, source : Path, dest : Path):
         raise NotImplementedError
@@ -25,8 +25,8 @@ class Parser:
         shutil.copy2(path, dest/path.relative_to(source))
         
         
-    class ResourceParser(Parser):
-        extensions = [".jpg", ".png", ".gif", ".css", ".html"]
+class ResourceParser(Parser):
+    extensions = [".jpg", ".png", ".gif", ".css", ".html"]
         
-        def parse(self, path : Path, source : Path, dest : Path):
-            copy(path, source, dest)
+    def parse(self, path : Path, source : Path, dest : Path):
+        copy(path, source, dest)
