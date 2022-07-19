@@ -28,5 +28,6 @@ class Parser:
 class ResourceParser(Parser):
     extensions = [".jpg", ".png", ".gif", ".css", ".html"]
         
-    def parse(self, path : Path, source : Path, dest : Path):
+    #why do I have to define this again?    
+    def parse(self, path, source, dest):
         copy(path, source, dest)

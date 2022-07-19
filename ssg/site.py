@@ -20,9 +20,9 @@ class Site:
                 
     def load_parser(self, extension):
         for parser in self.parsers:
-            if valid_extension(self.extension) == True:
+            if parser.valid_extension(self.extension):
                 return parser
-                
+                 
     def run_parser(self, path):
         parser = load_parser(self.path.suffix)
         if parser is not None:
