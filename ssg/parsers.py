@@ -18,11 +18,11 @@ class Parser:
             
     def write(self, path, dest, content, ext = ".html"):
         full_path = dest/path.with_suffix(ext).name #why not self.?
-        with open(full_path) as file:
+        with open(full_path, "w") as file:
             content.write(file)
             
     def copy(self, path, source, dest):
-        copy2(path, dest/path.relative_to(source))
+        shutil.copy2(path, dest/path.relative_to(source))
         
         
     class ResourceParser:
