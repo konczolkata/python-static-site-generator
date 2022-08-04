@@ -28,14 +28,15 @@ class Content(Mapping):
         if type in self.data:
             return self.data["type"]
         else:
-            return None
+            return "None"
                 
     @type.setter
     def type(self, type):
         self.data["type"] = type
         
     def __getitem__(self, key):
-        return self.data[self.key]
+        self.key = key
+        return self.data[key]
     
     def __iter__(self):
         iter(self.data)
