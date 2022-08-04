@@ -44,7 +44,7 @@ class Content(Mapping):
         data = []
         return str(data)
         
-for key, value in self.data.items():
+for key in self.data.items():
     if key != "content":
         data[key] = value
         
