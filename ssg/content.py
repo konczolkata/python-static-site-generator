@@ -26,7 +26,7 @@ class Content(Mapping):
     @property    
     def type(self):
         for type in self.data:
-            if type = "type"
+            if type == "type"
                 return self.data["type"]
             else:
                 return None
