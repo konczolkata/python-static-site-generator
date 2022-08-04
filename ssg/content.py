@@ -25,11 +25,10 @@ class Content(Mapping):
     
     @property    
     def type(self):
-        for key, value in self.data:
-            if key == "type"
-                return self.data["type"]
-            else:
-                return None
+        if type in self.data:
+            return self.data["type"]
+        else:
+            return None
                 
     @setter
     @property.type() = self.data["type"]
