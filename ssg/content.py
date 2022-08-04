@@ -17,7 +17,7 @@ class Content(Mapping):
     
     def __init__(self, data):
         self.data = Content.metadata    
-        self.data = [content : "content"]
+        self.data = {content : "content"}
     
     @property   
     def body(self):
