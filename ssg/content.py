@@ -30,8 +30,9 @@ class Content(Mapping):
         else:
             return None
                 
-    @setter
-    @property.type() = self.data["type"]
+    @type.setter
+    def type(self, type):
+        self.data["type"] = type
     
     def __iter__(self):
         iter(self.data)
