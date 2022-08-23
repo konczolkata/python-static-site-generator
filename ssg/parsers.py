@@ -32,12 +32,24 @@ class Parser:
 class ResourceParser(Parser):
     extensions = [".jpg", ".png", ".gif", ".css", ".html"]
         
-    #why do I have to define this again?    
+    #why don't I need to add the var types this time?  
     def parse(self, path, source, dest):
         copy(path, source, dest)
         
 class MarkdownParser(Parser):
     extensions = [".md", ".markdown"]
     
-    def parse(self, path : Path, source : Path, dest : Path):
+    def parse(self, path, source, dest):
         content = Content.load(self.read(path))
+        html = markdown(content.body)
+        dest = self.write(html)
+        sys.stdout.write(r"\x1b[1;32m{} converted to HTML. Metadata: {}\n").format(path.name, content)
+        
+class ReStructuredTextParser(Parser):
+    extentsions = [".rst"]
+    
+    def parse(self, path, source, dest):
+        content = Content.load(self.read(path))
+        html = publish_parts(content.body, writer_name = "html5")
+        dest = sefl.write(html["html_body"])
+        sys.stdout.write(r"\x1b[1;32m{} converted to HTML. Metadata: {}\n").format(path.name, content)
