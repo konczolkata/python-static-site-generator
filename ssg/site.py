@@ -1,4 +1,5 @@
 from pathlib import Path
+import sys
 #how do these files link up?
 
 class Site:
@@ -32,4 +33,8 @@ class Site:
             parser.parse(path, self.source, self.dest)
             #why isn't it Parser.parse()
         else:
-            print("Not Implemented")
+            self.error("No parser for the {} extension, file skipped!".format(path.suffix))
+            
+    @staticmethod
+    def error(message):
+        sys.stderr.write("\x1b[1;31m{}\n".format(message))
