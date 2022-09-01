@@ -9,6 +9,8 @@ jobs:
     - image: cimg/python:3.10.6
     steps:
     - checkout
+    - python/install-packages:
+        pkg-manager: pip
     - run: 
         name: Site Generator
         command: python3 ssg.py --source content --dest test
