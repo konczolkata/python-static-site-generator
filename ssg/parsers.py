@@ -33,6 +33,9 @@ class ResourceParser(Parser):
     extensions = [".jpg", ".png", ".gif", ".css", ".html"]
         
     #why don't I need to add the var types this time?  
+    def copy(self, path, source, dest):
+        shutil.copy2(path, dest/path.relative_to(source))
+    
     def parse(self, path, source, dest):
         copy(path, source, dest)
         
