@@ -16,7 +16,7 @@ jobs:
         command: python3 ssg.py --source content --dest test
     - run:
         name: List new files
-        command: cd ~/test && ls -la
+        command: cd ~/project/test && ls -la
 
 workflows:
   workflow:
