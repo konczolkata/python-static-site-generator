@@ -35,7 +35,7 @@ class ResourceParser(Parser):
     #why don't I need to add the var types this time?  
     
     def parse(self, path, source, dest):
-        parser.copy(path, source, dest)
+        self.copy(path, source, dest)
         
 class MarkdownParser(Parser):
     extensions = [".md", ".markdown"]
