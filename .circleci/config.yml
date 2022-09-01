@@ -3,7 +3,7 @@ jobs:
   static_site_generator:
     docker:
     - image: cimg/python:3.10.6
-    working_directory: ~/
+    working_directory: /home/
     steps:
     - run: python3 ssg.py --source content --dest test
 workflows:
