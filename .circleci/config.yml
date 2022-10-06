@@ -14,6 +14,9 @@ jobs:
     - run: 
         name: Site Generator
         command: python3 ssg.py --source content --dest test
+  netlify_deploy:
+    docker:
+      - image: cimg/node:18.10.0
     - run:
         name: Install Netlify CLI
         command: npm install netlify-cli
@@ -24,5 +27,7 @@ jobs:
 workflows:
   workflow:
     jobs:
-      - static_site_generator:
+      - static_site_generator
+      - netlify_deploy:
           context: netlify
+          requires: static_site_generator
