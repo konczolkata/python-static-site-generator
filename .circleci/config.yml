@@ -31,4 +31,5 @@ workflows:
     - static_site_generator
     - netlify_deploy:
         context: netlify
-        requires: static_site_generator
+        requires: 
+          - static_site_generator
