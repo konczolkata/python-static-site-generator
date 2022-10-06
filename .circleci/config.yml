@@ -17,6 +17,7 @@ jobs:
   netlify_deploy:
     docker:
     - image: cimg/node:18.10.0
+    steps:
     - run:
         name: Install Netlify CLI
         command: npm install netlify-cli
