@@ -16,9 +16,7 @@ jobs:
         command: python3 ssg.py --source content --dest test
     - run:
         name: Install Netlify CLI
-        command: |
-          npm init
-          npm install netlify-cli
+        command: sudo npm install netlify-cli -g
     - run:
         name: Deploy to Netlify
         command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/test --site gregarious-brigadeiros
