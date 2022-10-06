@@ -15,10 +15,11 @@ jobs:
         name: Site Generator
         command: python3 ssg.py --source content --dest test
     - run:
-        name: List new files
-        command: cd ~/project/test && ls -la
+        name: Deploy to Netlify
+        command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/test --site gregarious-brigadeiros
 
 workflows:
   workflow:
     jobs:
-    - static_site_generator
+      - static_site_generator
+          context: netlify
