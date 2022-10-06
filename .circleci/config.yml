@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   python: circleci/python@2.0.3
+  netlify: assurance-maladie-digital/netlify@1.1.0
 
 jobs:
   static_site_generator:
@@ -14,14 +15,8 @@ jobs:
     - run: 
         name: Site Generator
         command: python3 ssg.py --source content --dest test
-    - run:
-        name: Install Netlify CLI
-        command: |
-          npm init
-          npm install netlify-cli
-    - run:
-        name: Deploy to Netlify
-        command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/test --site gregarious-brigadeiros
+    - netlify/deploy:
+        folder: ~/test
 
 workflows:
   workflow:
