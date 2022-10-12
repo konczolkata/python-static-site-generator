@@ -1,6 +1,6 @@
 # Build a Static Site Generator with Python
 
-## Status
+## Status. 
 
 **Published**
 
