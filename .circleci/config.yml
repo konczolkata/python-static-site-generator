@@ -24,7 +24,7 @@ jobs:
           - project/test
   deploy_site:
     - attach_workspace:
-        at: /project/test
+        at: /
     - run:
         name: Install Netlify CLI
         command: sudo npm install netlify-cli -g
