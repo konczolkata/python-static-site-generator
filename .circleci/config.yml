@@ -1,6 +1,6 @@
 version: 2.1
 
-setup: true
+# setup: true
 
 orbs:
   python: circleci/python@2.0.3
@@ -19,12 +19,12 @@ jobs:
         name: Site Generator
         command: python3 ssg.py --source content --dest test
     - persist_to_workspace:
-        root: ~/project/
+        root: ~/
         path: 
-          - test
+          - project/test
   deploy_site:
     - attach_workspace:
-        at: ~/project/test
+        at: ~/
     - run:
         name: Install Netlify CLI
         command: sudo npm install netlify-cli -g
