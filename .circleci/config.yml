@@ -20,7 +20,7 @@ jobs:
         command: python3 ssg.py --source content --dest test
     - persist_to_workspace:
         root: ~/
-        path: 
+        paths: 
           - project/test
   deploy_site:
     - attach_workspace:
