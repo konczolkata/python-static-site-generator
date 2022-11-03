@@ -3,42 +3,21 @@ version: 2.1
 setup: true
 
 orbs:
-  python: circleci/python@2.0.3
   path-filtering: circleci/path-filtering@0.1.3
- 
-
-jobs:
-  static_site_generator:
-    docker:
-      - image: cimg/python:3.10.6-node
-    steps:
-      - checkout
-      - python/install-packages:
-          pkg-manager: pip
-      - run: 
-          name: Site Generator
-          command: python3 ssg.py --source content --dest test
-      - persist_to_workspace:
-          root: ~/
-          paths: 
-            - project/test
             
 
 workflows:
   always-run:
     jobs:
-      - static_site_generator
       # the path-filtering/filter job determines which pipeline
       # parameters to update.
       - path-filtering/filter:
-          requires: 
-            - static_site_generator
           name: check-updated-files
           # 3-column, whitespace-delimited mapping. One mapping per
           # line:
           # <regex path-to-test> <parameter-to-set> <value-of-pipeline-parameter>
           mapping: |
-            project/test/.* test-one true
+            project/content/.* test-one true
           base-revision: master
           # this is the path of the configuration we should trigger once
           # path filtering and pipeline parameter value updates are
