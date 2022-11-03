@@ -8,17 +8,17 @@ slug: home
 
 ## Emphasis
 
-**This is bold text**
+**This is a big bold text**
 
-*This is italic text*
+*This is a stylish italic text*
 
 ## Lists
 
 Unordered
 
-* First Item
-* Second Item
-* Third Item
+* One Item
+* Another Item
+* Yet Another Item
 
 Ordered
 
