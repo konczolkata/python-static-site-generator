@@ -8,9 +8,9 @@ slug: home
 
 ## Emphasis
 
-**This is a big bold text**
+**This is bold text**
 
-*This is a stylish italic text*
+*This is italic text*
 
 ## Lists
 
