@@ -3,7 +3,7 @@ version: 2.1
 executors:
   base:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/python:3.10.6-node
 
 parameters:
   test_one:
