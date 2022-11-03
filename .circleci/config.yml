@@ -10,21 +10,22 @@ orbs:
 jobs:
   static_site_generator:
     docker:
-    - image: cimg/python:3.10.6-node
+      - image: cimg/python:3.10.6-node
     steps:
-    - checkout
-    - python/install-packages:
-        pkg-manager: pip
-    - run: 
-        name: Site Generator
-        command: python3 ssg.py --source content --dest test
-    - persist_to_workspace:
-        root: ~/
-        paths: 
-          - project/test
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+      - run: 
+          name: Site Generator
+          command: python3 ssg.py --source content --dest test
+      - persist_to_workspace:
+          root: ~/
+          paths: 
+            - project/test
+            
   deploy_site:
-        docker:
-    - image: cimg/python:3.10.6-node
+    docker:
+      - image: cimg/python:3.10.6-node
     steps:
       - attach_workspace:
           at: ~/project/
