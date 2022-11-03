@@ -30,4 +30,4 @@ workflows:
     when: << pipeline.parameters.test-one >>
     jobs:
       - deploy_site:
-        context: netlify
+          context: netlify
