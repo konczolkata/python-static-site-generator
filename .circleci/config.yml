@@ -17,10 +17,10 @@ workflows:
           # line:
           # <regex path-to-test> <parameter-to-set> <value-of-pipeline-parameter>
           mapping: |
-            project/content/.* test-one true
+            content/.* test-one true
           base-revision: << pipeline.git.branch >>
           # this is the path of the configuration we should trigger once
           # path filtering and pipeline parameter value updates are
           # complete. In this case, we are using the parent dynamic
           # configuration itself.
-          config-path: project/.circleci/continue_config.yml
+          config-path: .circleci/continue_config.yml
