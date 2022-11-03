@@ -27,8 +27,9 @@ jobs:
     docker:
       - image: cimg/python:3.10.6-node
     steps:
+      - checkout
       - attach_workspace:
-          at: ~/project/
+          at: ~/project/test
       - run:
           name: Install Netlify CLI
           command: sudo npm install netlify-cli -g
