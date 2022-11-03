@@ -22,15 +22,15 @@ jobs:
         root: ~/
         paths: 
           - project/test
-#   deploy_site:
-#     - attach_workspace:
-#         at: ./
-#     - run:
-#         name: Install Netlify CLI
-#         command: sudo npm install netlify-cli -g
-#     - run:
-#         name: Deploy to Netlify
-#         command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/project/test --site gregarious-brigadeiros
+  deploy_site:
+    - attach_workspace:
+        at: ~/project/
+    - run:
+        name: Install Netlify CLI
+        command: sudo npm install netlify-cli -g
+    - run:
+        name: Deploy to Netlify
+        command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/project/test --site gregarious-brigadeiros
 
 workflows:
 #   always-run:
@@ -54,5 +54,5 @@ workflows:
   workflow:
     jobs:
     - static_site_generator
-#     - deploy_site:
-#         context: netlify
+    - deploy_site:
+        context: netlify
