@@ -6,7 +6,7 @@ executors:
       - image: cimg/python:3.10.6-node
 
 parameters:
-  test_one:
+  test-one:
     type: boolean
     default: false
     
@@ -27,7 +27,7 @@ jobs:
               
 workflows:
   deploy_to_netlify:
-    when: << pipeline.parameters.test_one >>
+    when: << pipeline.parameters.test-one >>
     jobs:
       - deploy_site:
         context: netlify
