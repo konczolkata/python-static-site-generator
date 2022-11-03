@@ -36,7 +36,7 @@ workflows:
           # line:
           # <regex path-to-test> <parameter-to-set> <value-of-pipeline-parameter>
           mapping: |
-            project/test/.* test_one true
+            ~/project/test/.* test_one true
           base-revision: main
           # this is the path of the configuration we should trigger once
           # path filtering and pipeline parameter value updates are
