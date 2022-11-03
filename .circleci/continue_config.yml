@@ -1,0 +1,33 @@
+version: 2.1
+
+executors:
+  base:
+    docker:
+      - image: cimg/base:stable
+
+parameters:
+  test_one:
+    type: boolean
+    default: false
+    
+jobs:
+  deploy_site:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project/test
+      - run:
+          name: Install Netlify CLI
+          command: sudo npm install netlify-cli -g
+      - run:
+          name: Deploy to Netlify
+          command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/project/test --site gregarious-brigadeiros
+              
+workflows:
+  deploy_to_netlify:
+    when: << pipeline.parameters.test_one >>
+    jobs:
+      - deploy_site:
+        context: netlify
