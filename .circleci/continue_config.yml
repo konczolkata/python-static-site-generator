@@ -40,7 +40,7 @@ jobs:
 workflows:
   deploy_to_netlify:
     when: << pipeline.parameters.test-one >>
-    jobs:
-      - static_site_generator
-      - deploy_site:
-          context: netlify
+      jobs:
+        - static_site_generator
+        - deploy_site:
+            context: netlify
