@@ -13,6 +13,7 @@ jobs:
     docker:
       - image: cimg/python:3.10.6-node
     steps:
+      - run: echo << pipeline.parameters.test-one >>
       - checkout
       - python/install-packages:
           pkg-manager: pip
@@ -39,8 +40,8 @@ jobs:
               
 workflows:
   deploy_to_netlify:
-    when: 
-      condition: << pipeline.parameters.test-one >>
+#     when: 
+#       condition: << pipeline.parameters.test-one >>
     jobs:
       - static_site_generator
       - deploy_site:
