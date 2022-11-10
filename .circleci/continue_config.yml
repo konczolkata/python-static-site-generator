@@ -13,7 +13,9 @@ jobs:
     docker:
       - image: cimg/python:3.10.6-node
     steps:
-      - run: echo << pipeline.parameters.test-one >>
+      - run: |
+          echo << pipeline.parameters.test-one >>  
+          shopt
       - checkout
       - python/install-packages:
           pkg-manager: pip
