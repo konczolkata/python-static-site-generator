@@ -12,8 +12,11 @@ workflows:
       # the path-filtering/filter job determines which pipeline
       # parameters to update.
       - path-filtering/filter:
+          pre-steps:
+            - run:
+                command: shopt
           mapping: |
-            content/.** test-one true
+            content/.* test-one true
           base-revision: master
           # this is the path of the configuration we should trigger once
           # path filtering and pipeline parameter value updates are
