@@ -14,7 +14,9 @@ workflows:
       - path-filtering/filter:
           pre-steps:
             - run:
-                command: shopt
+                command: |
+                  shopt -s globstar
+                  shopt
           mapping: |
             content/.* test-one true
           base-revision: master
