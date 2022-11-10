@@ -15,7 +15,6 @@ jobs:
     steps:
       - run: |
           echo << pipeline.parameters.test-one >>  
-          shopt
       - checkout
       - python/install-packages:
           pkg-manager: pip
@@ -42,8 +41,7 @@ jobs:
               
 workflows:
   deploy_to_netlify:
-#     when: 
-#       condition: << pipeline.parameters.test-one >>
+    when: << pipeline.parameters.test-one >>
     jobs:
       - static_site_generator
 #       - deploy_site:
