@@ -24,19 +24,19 @@ jobs:
           root: ~/
           paths: 
             - project/test
-  deploy_site:
-    docker:
-      - image: cimg/python:3.10.6-node
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/project/test
-      - run:
-          name: Install Netlify CLI
-          command: sudo npm install netlify-cli -g
-      - run:
-          name: Deploy to Netlify
-          command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/project/test --site gregarious-brigadeiros
+#   deploy_site:
+#     docker:
+#       - image: cimg/python:3.10.6-node
+#     steps:
+#       - checkout
+#       - attach_workspace:
+#           at: ~/project/test
+#       - run:
+#           name: Install Netlify CLI
+#           command: sudo npm install netlify-cli -g
+#       - run:
+#           name: Deploy to Netlify
+#           command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/project/test --site gregarious-brigadeiros
               
 workflows:
   deploy_to_netlify:
@@ -44,5 +44,5 @@ workflows:
 #       condition: << pipeline.parameters.test-one >>
     jobs:
       - static_site_generator
-      - deploy_site:
-          context: netlify
+#       - deploy_site:
+#           context: netlify
