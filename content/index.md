@@ -31,3 +31,7 @@ Ordered
 [link text](http://google.com)
 
 [link with title](http://google.com "title text!")
+
+## Pictures
+
+<img src="/images/logos/sample.jpeg" alt="A Glowing Field"/>
