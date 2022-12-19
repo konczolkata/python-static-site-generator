@@ -18,9 +18,9 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-#       - run: 
-#           name: Site Generator
-#           command: python3 ssg.py --source content --dest test
+      - run: 
+          name: Site Generator
+          command: python3 ssg.py --source content --dest test
       - persist_to_workspace:
           root: ~/
           paths: 
@@ -32,13 +32,12 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/project/test
-#       - run:
-#           name: Install Netlify CLI
-#           command: sudo npm install netlify-cli -g
-#       - run:
-#           name: Deploy to Netlify
-#           command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/project/test --site gregarious-brigadeiros
-      - run: echo <<pipeline.parameters.PARA_meter>>
+      - run:
+          name: Install Netlify CLI
+          command: sudo npm install netlify-cli -g
+      - run:
+          name: Deploy to Netlify
+          command: netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir ~/project/test --site gregarious-brigadeiros
               
 workflows:
   deploy_to_netlify:
