@@ -16,9 +16,9 @@ slug: home
 
 Unordered
 
-* First Item
-* Second Item
-* Third Item
+* One Item
+* Another Item
+* Yet Another Item
 
 Ordered
 
@@ -31,5 +31,3 @@ Ordered
 [link text](http://google.com)
 
 [link with title](http://google.com "title text!")
-
-More links!

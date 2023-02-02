@@ -403,10 +403,25 @@ def test_parsers_written_events_module4(parse):
 
     #     hooks.event("written")
     #     hooks.event("written")
+=======
+import re
+import pytest
+
+import redbaron
+
+
+@pytest.mark.test_parser_imports_module4
+def test_parser_imports_module4(parse):
+    # from docutils.core import publish_parts
+    # from markdown import markdown
+
+    # from ssg.content import Content
+>>>>>>> master
 
     parsers = parse("parsers")
     assert parsers.success, parsers.message
 
+<<<<<<< HEAD
     markdown_parse = parsers.class_("MarkdownParser").defines("parse")
     rst_parse = parsers.class_("ReStructuredTextParser").defines("parse")
 

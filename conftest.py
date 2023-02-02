@@ -1,8 +1,10 @@
 import ast
 import json
-
+import re
+import ast
 import parso
 import pytest
+
 
 from collections import OrderedDict
 from types import GeneratorType as generator
@@ -171,10 +173,8 @@ class Parser:
         ).n
         return alias in (nodes if isinstance(nodes, list) else [nodes])
 
-
 @pytest.fixture
 def parse():
     def _parse(file_name):
         return Parser(file_name, {})
-
     return _parse
