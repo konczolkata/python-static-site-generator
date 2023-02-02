@@ -13,7 +13,7 @@ workflows:
       - path-filtering/filter:
           mapping: |
             content/.* test-one true
-          base-revision: master
+          base-revision: main
           # this is the path of the configuration we should trigger once
           # path filtering and pipeline parameter value updates are
           # complete. In this case, we are using the parent dynamic
